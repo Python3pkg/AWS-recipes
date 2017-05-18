@@ -33,7 +33,7 @@ def cleanup(iam_client, user, local_only = False, mfa_serial = None):
     shutil.rmtree(user)
 
 def generate_password(length = 16):
-    return ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits + '!@#$%^&*()_+`-=[]{};:,<.>?/\\|') for _ in range(length))
+    return ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits + '!@#$%^&*()_+`-=[]{};:,<.>?/\\|') for _ in xrange(length))
 
 def pgp_and_write(user, filename, data, always_trust = False):
     if not _gnupg_available:

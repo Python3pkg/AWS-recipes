@@ -38,7 +38,7 @@ class TestPythonRecipesClass:
             (output, err) = process.communicate()
             exit_code = process.wait()
             if exit_code != 0:
-                print(('The recipe %s does not run properly.' % recipe))
+                print('The recipe %s does not run properly.' % recipe)
                 successful_help_runs = False
         assert successful_help_runs
 
@@ -167,13 +167,13 @@ class TestPythonRecipesClass:
             process = Popen(cmd, stdout=PIPE)
             exit_code = process.wait()
             if exit_code != 0:
-                print(('The recipe %s failed to run with arguments %s.' % (recipe, args)))
+                print('The recipe %s failed to run with arguments %s.' % (recipe, args))
                 successful_aws_recipes_create_ip_ranges_runs = False
                 continue
             test_results = read_ip_ranges('ip-ranges-default.json')
             known_results = read_ip_ranges(os.path.join(self.result_dir, result_file))
             if self.cmp(test_results, known_results) != 0:
-                print(('Failed when comparing:\n%s\n%s\n' % (test_results, known_results)))
+                print('Failed when comparing:\n%s\n%s\n' % (test_results, known_results))
                 successful_aws_recipes_create_ip_ranges_runs = False
             os.remove('ip-ranges-default.json')
         assert(successful_aws_recipes_create_ip_ranges_runs)

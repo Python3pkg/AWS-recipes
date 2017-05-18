@@ -68,7 +68,7 @@ def display_qr_code(png, seed):
     if _fabulous_available:
         fabulous.utils.term.bgcolor = 'white'
         with open(qrcode_file.name, 'rb') as png_file:
-            print((fabulous.image.Image(png_file, 100)))
+            print(fabulous.image.Image(png_file, 100))
     else:
         graphical_browsers = [webbrowser.BackgroundBrowser,
                               webbrowser.Mozilla,

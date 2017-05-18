@@ -14,7 +14,7 @@ import os
 from threading import Thread
 # Python2 vs Python3
 try:
-    from queue import Queue
+    from Queue import Queue
 except ImportError:
     from queue import Queue
 

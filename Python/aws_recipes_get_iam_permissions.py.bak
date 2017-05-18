@@ -71,7 +71,7 @@ def get_value_from_arn(field, arn):
 #
 def get_managed_policy_document(iam_client, policy_arn, managed_policies):
     policy_document = None
-    print(('Fetching managed policy %s...' % policy_arn))
+    print('Fetching managed policy %s...' % policy_arn)
     # Check if we already downloaded that managed policy...
     if policy_arn in managed_policies:
         policy_document = managed_policies[policy_arn]
@@ -89,7 +89,7 @@ def get_managed_policy_document(iam_client, policy_arn, managed_policies):
 # Get all policies that apply to an IAM group, role, or user
 #
 def get_policies(iam_client, managed_policies, resource_type, resource_name):
-    print(('Fetching policies for IAM %s %s...' % (resource_type, resource_name)))
+    print('Fetching policies for IAM %s %s...' % (resource_type, resource_name))
     fetched_policies = []
     # Managed policies
     list_policy_method = getattr(iam_client, 'list_attached_' + resource_type + '_policies')
